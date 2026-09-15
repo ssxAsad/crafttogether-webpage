@@ -63,7 +63,11 @@ export function HeroSection() {
             <span>DOWNLOAD FOR WINDOWS</span>
           </MinecraftButton>
           
-          <MinecraftButton variant="secondary" className="px-8 py-4 text-lg gap-3 w-full sm:w-auto">
+          <MinecraftButton 
+            variant="secondary" 
+            className="px-8 py-4 text-lg gap-3 w-full sm:w-auto"
+            onClick={() => window.open('https://github.com/ssxAsad/craftora-webpage', '_blank', 'noreferrer')}
+          >
             <Terminal className="w-5 h-5 text-zinc-400" />
             <span>VIEW SOURCE</span>
           </MinecraftButton>

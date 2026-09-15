@@ -45,7 +45,7 @@ function App() {
             <MinecraftButton 
               variant="secondary" 
               className="px-6 py-2 text-sm"
-              onClick={() => window.open('https://github.com/YourName/Craftora', '_blank', 'noreferrer')}
+              onClick={() => window.open('https://github.com/ssxAsad', '_blank', 'noreferrer')}
             >
               AUTHOR
             </MinecraftButton>

@@ -28,7 +28,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <a 
-            href="https://github.com/YourName/Craftora" 
+            href="https://github.com/ssxAsad/craftora-webpage" 
             target="_blank" 
             rel="noreferrer"
             className="hidden sm:flex text-zinc-400 hover:text-white transition-colors"
