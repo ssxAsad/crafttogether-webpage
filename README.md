@@ -1,6 +1,6 @@
 # CraftTogether Webpage
 
-Official landing page for [CraftTogether](https://github.com/ssxAsad/craftogether-webpage) — the seamless Minecraft server hosting & management platform.
+Official landing page for [CraftTogether](https://github.com/ssxAsad/crafttogether-webpage) — the seamless Minecraft server hosting & management platform.
 
 ## Getting Started
 

@@ -83,7 +83,7 @@ export function HeroSection() {
             variant="secondary" 
             size="lg"
             className="px-8 py-4 text-base sm:text-lg gap-3 w-full sm:w-auto"
-            onClick={() => window.open('https://github.com/ssxAsad/craftogether-webpage', '_blank', 'noreferrer')}
+            onClick={() => window.open('https://github.com/ssxAsad/crafttogether-webpage', '_blank', 'noreferrer')}
           >
             <Terminal className="w-5 h-5 text-slate-500" />
             <span>VIEW SOURCE</span>

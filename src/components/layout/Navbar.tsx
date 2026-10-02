@@ -43,7 +43,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <a 
-            href="https://github.com/ssxAsad/craftogether-webpage" 
+            href="https://github.com/ssxAsad/crafttogether-webpage" 
             target="_blank" 
             rel="noreferrer"
             aria-label="GitHub Repository"
