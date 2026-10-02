@@ -1,10 +1,11 @@
 {
-  "name": "craftora-web",
+  "name": "craftogether-webpage",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"

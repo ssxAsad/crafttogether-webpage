@@ -8,38 +8,44 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 24, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }
     }
   };
 
+  const scrollToDownload = () => {
+    document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background with CSS Shader-like effect */}
-      <div className="absolute inset-0 bg-obsidian-950 z-0">
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/40 via-obsidian-950 to-obsidian-950"></div>
-        {/* Subtle grid to represent blocks */}
+    <section className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-slate-50">
+      {/* Background with CSS light shader and #488f48 ambient effects */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-emerald-100/70 via-slate-50 to-slate-50"></div>
+        
+        {/* Subtle grid representing Minecraft blocks */}
         <div 
-          className="absolute inset-0 opacity-[0.03]" 
+          className="absolute inset-0 opacity-[0.05]" 
           style={{
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(#488f48 1px, transparent 1px), linear-gradient(90deg, #488f48 1px, transparent 1px)`,
             backgroundSize: '64px 64px',
-            transform: 'perspective(1000px) rotateX(60deg) translateY(-100px) translateZ(-200px)',
+            transform: 'perspective(1000px) rotateX(60deg) translateY(-80px) translateZ(-150px)',
             transformOrigin: 'top center'
           }}
         ></div>
-        {/* Fog gradient at the bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-obsidian-950 to-transparent"></div>
+
+        {/* Soft bottom blend gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-50 to-transparent"></div>
       </div>
 
       <motion.div 
@@ -48,27 +54,38 @@ export function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 variants={itemVariants} className="text-5xl sm:text-7xl lg:text-8xl font-mc text-white max-w-5xl mx-auto leading-[1.1] drop-shadow-2xl">
+
+
+        <motion.h1 variants={itemVariants} className="text-5xl sm:text-7xl lg:text-8xl font-mc text-slate-900 max-w-5xl mx-auto leading-[1.08] tracking-tight drop-shadow-sm">
           Minecraft Servers <br className="hidden sm:block" />
-          <span className="text-emerald-500 block mt-2">Made Easy.</span>
+          <span className="bg-gradient-to-r from-[#488f48] via-[#3b773b] to-[#5ca35c] bg-clip-text text-transparent block mt-2">
+            Made Easy.
+          </span>
         </motion.h1>
 
-        <motion.p variants={itemVariants} className="mt-8 text-lg sm:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed font-medium">
+        <motion.p variants={itemVariants} className="mt-8 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
           Easily host, manage, and share your Minecraft server with friends. A simple and hassle-free way to connect and play together.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="mt-12 flex flex-col sm:flex-row items-center gap-6">
-          <MinecraftButton variant="primary" className="px-10 py-4 text-lg gap-3 w-full sm:w-auto shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)]">
+        <motion.div variants={itemVariants} className="mt-12 flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto">
+          <MinecraftButton 
+            variant="primary" 
+            size="lg"
+            glow
+            className="px-9 py-4 text-base sm:text-lg gap-3 w-full sm:w-auto"
+            onClick={scrollToDownload}
+          >
             <Download className="w-6 h-6" />
             <span>DOWNLOAD FOR WINDOWS</span>
           </MinecraftButton>
           
           <MinecraftButton 
             variant="secondary" 
-            className="px-8 py-4 text-lg gap-3 w-full sm:w-auto"
-            onClick={() => window.open('https://github.com/ssxAsad/craftora-webpage', '_blank', 'noreferrer')}
+            size="lg"
+            className="px-8 py-4 text-base sm:text-lg gap-3 w-full sm:w-auto"
+            onClick={() => window.open('https://github.com/ssxAsad/craftogether-webpage', '_blank', 'noreferrer')}
           >
-            <Terminal className="w-5 h-5 text-zinc-400" />
+            <Terminal className="w-5 h-5 text-slate-500" />
             <span>VIEW SOURCE</span>
           </MinecraftButton>
         </motion.div>
@@ -78,16 +95,16 @@ export function HeroSection() {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-500 font-mc text-xs"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 font-mc text-[11px] tracking-wider"
       >
         <span>SCROLL</span>
         <motion.div 
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-4 h-6 border-2 border-zinc-500 rounded-full flex justify-center p-1"
+          className="w-4 h-6 border-2 border-slate-300 rounded-full flex justify-center p-1"
         >
-          <div className="w-1 h-1 bg-zinc-500 rounded-full"></div>
+          <div className="w-1.5 h-1.5 bg-slate-400 rounded-full"></div>
         </motion.div>
       </motion.div>
     </section>
